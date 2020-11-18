@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const bodyParser = require('body-parser');
 const db = require('./database')
 
 app.use(bodyParser.json());
+app.use(express.static('public'))
 
 const startServer = () => {
   app.listen(8080, () => console.log('Movie API listening on Port 8080'));
@@ -19,7 +21,7 @@ const syncDb = () => db.sync()
 
 app.get('/', (req, res, next) => {
     try {
-      res.send('some data');
+      res.sendFile(path.join(__dirname, '../public/index.html'));
     } catch(err) {next(err)}
 });
 
