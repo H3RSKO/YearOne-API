@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: ['babel-regenerator-runtime', "./frontEnd/App.js"],
+  entry: ['babel-regenerator-runtime', "./frontEnd/Index.js"],
   mode: "development",
   devtool: "inline-source-map",
   output: {

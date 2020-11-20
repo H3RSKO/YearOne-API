@@ -6,11 +6,14 @@ const Movie = db.define('movie', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  poster: {
+    type: Sequelize.TEXT
+  },
   director: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  releaseYear: {
+  year: {
     type: Sequelize.INTEGER,
     allowNull: false
   },

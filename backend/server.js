@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const db = require('./database')
+const history = require('connect-history-api-fallback')
 
 app.use(bodyParser.json());
 app.use(express.static('public'))
@@ -12,8 +13,16 @@ const startServer = () => {
 }
 
 // connect to backend APIs
-// app.use('/api/', require('./API'))
+app.use('/api/', require('./API'))
 
+// used to block backend routing while allowing api calls
+const historyMiddleware = history({verbose: true})
+app.use((req, res, next) => {
+  if (req.path === '/api') next()
+  else {
+    historyMiddleware(req, res, next)
+  }
+});
 
 // sync db
 const syncDb = () => db.sync()
