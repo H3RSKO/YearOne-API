@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import {Card, CardMedia, CardContent, CardActions, IconButton, SvgIcon, Typography, Box} from '@material-ui/core';
 import { withStyles } from "@material-ui/core/styles";
-import movieStyles from './moviesStyle'
+import Movie from '../Movie/Movie'
+import moviesStyles from './moviesStyle'
 
 
 
 const Movies = (props) => {
   const {classes, movie} = props
+  const [selected, setAsSelected] = useState(false)
+
+  const popUpHandler = () => {
+    let status = selected ? setAsSelected(false): setAsSelected(true)
+  }
 
   console.log(movie)
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={() => setAsSelected(true)}>
       <CardMedia
         image={movie.poster}
         title={movie.title}
         className={classes.media}
-        height="65%"
+        // height="65%"
       />
       <CardContent className={classes.content}>
         <Typography gutterBottom variant="h4" component="h1" m={0}>
@@ -29,9 +35,9 @@ const Movies = (props) => {
         <Box m={0} fontSize={19}>
           Released: {movie.year}
         </Box>
-        <Box overflow="hidden" m={0.5} mt={2}>
+        {/* <Box overflow="hidden" m={0.5} mt={2}>
          {movie.description}
-        </Box>
+        </Box> */}
       </CardContent>
 
       <CardActions disableSpacing>
@@ -46,8 +52,9 @@ const Movies = (props) => {
         </SvgIcon>
         </IconButton>
       </CardActions>
+      {selected ? <Movie title={movie.title} popUpHandler={popUpHandler}/>: <></>}
     </Card>
   )
 }
 
-export default withStyles(movieStyles)(Movies)
+export default withStyles(moviesStyles)(Movies)

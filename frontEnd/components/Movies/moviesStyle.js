@@ -1,4 +1,4 @@
-const movieStyles = {
+const moviesStyles = {
   root: {
     maxWidth: 340,
     backgroundColor: '#4e9ba6',
@@ -10,8 +10,8 @@ const movieStyles = {
     paddingTop: '56.25%', // 16:9
   },
   content: {
-    height: "12em",
+    // height: "12em",
   }
 };
 
-export default movieStyles
+export default moviesStyles
