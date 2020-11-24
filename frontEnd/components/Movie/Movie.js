@@ -37,7 +37,7 @@ const Movie = (props) => {
     };
     setMovie(sanitizedMovie);
   }, []);
-  console.log('movie>>>>>>>> ', movie)
+
   return (
     <Dialog
       onClose={popUpHandler}
@@ -45,17 +45,18 @@ const Movie = (props) => {
       open={open}
     >
       {movie ? (
-        <Grid container direction="row" spacing={2}>
-          <Card>
-          <Grid item>
-            <CardMedia
+        <Card className={classes.root}>
+        <Grid container direction="row" spacing={0}>
+          <Grid item xs>
+            {/* <CardMedia
               image={movie.poster}
               title={movie.title}
               className={classes.media}
-              height="65%"
-            />
+              height="100%"
+            /> */}
+             <img className={classes.media} alt="image" src={movie.poster} />
             </Grid>
-            <Grid item>
+            <Grid item xs>
             <DialogTitle id="customized-dialog-title" onClose={popUpHandler}>
               {movie.title}
             </DialogTitle>
@@ -74,8 +75,8 @@ const Movie = (props) => {
               </Button>
             </DialogActions>
             </Grid>
-          </Card>
         </Grid>
+          </Card>
       ) : (
         <div> Loading...</div>
       )}

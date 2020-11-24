@@ -2,6 +2,7 @@ const movieStyles = (theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(2),
+    width: '35vw'
   },
   closeButton: {
     position: 'absolute',
@@ -10,8 +11,9 @@ const movieStyles = (theme) => ({
     color: theme.palette.grey[500],
   },
   media: {
-    height: 130,
-    paddingTop: '56.25%', // 16:9
+    position: 'fixed',
+    height: '60%',
+
   },
   description: {
     maxWidth: '20vw'
