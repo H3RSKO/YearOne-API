@@ -24,7 +24,8 @@ const Movies = (props) => {
 
   console.log(movie);
   return (
-    <Card className={classes.root} onClick={() => setAsSelected(true)}>
+    <Card className={classes.root} >
+    <div onClick={() => setAsSelected(true)}>
       <CardMedia
         image={movie.poster}
         title={movie.title}
@@ -46,14 +47,16 @@ const Movies = (props) => {
         </Box> */}
       </CardContent>
 
-      <CardActions disableSpacing>
-        <ThumbRating />
-      </CardActions>
+
       {selected ? (
         <Movie title={movie.title} popUpHandler={popUpHandler} />
       ) : (
         <></>
       )}
+    </div>
+    <CardActions disableSpacing>
+        <ThumbRating movie={movie}/>
+      </CardActions>
     </Card>
   );
 };
