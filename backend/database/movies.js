@@ -11,15 +11,12 @@ const Movie = db.define('movie', {
   },
   director: {
     type: Sequelize.STRING,
-    allowNull: false
   },
   year: {
     type: Sequelize.INTEGER,
-    allowNull: false
   },
   description: {
     type: Sequelize.TEXT,
-    allowNull: true
   },
   thumbsUp: {
     type: Sequelize.INTEGER,

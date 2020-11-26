@@ -14,13 +14,14 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   console.log('api req body>> ', req.body)
   try {
-    const movie = await Movie.findOne({
+    let movie = await Movie.findOne({
       where: {
         title: req.body.title
       }
     })
-    console.log('made it top movie ', movie)
+    console.log('made it to API movie ', movie)
     if (movie) {
+      // fix this: req.body works
       movie.thumbsUp = req.body.thumbsUp
       movie.thumbsDown = req.body.thumbsDown
     } else {

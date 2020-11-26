@@ -12,7 +12,6 @@ const App = () => {
 
   useEffect(async () => {
     let {data} = await axios.get('/api')
-    // console.log('data .. ', data)
     setMovies(data)
   }, [])
 
