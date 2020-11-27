@@ -31,5 +31,15 @@
 <br />
 <br />
 
+### All Movies Page
+<h1 align="center">
+	<img width="1000" src="./public/allmovies.png">
+	<br>
+</h1>
 
 
+### When selecting a movie
+<h1 align="center">
+	<img width="1000" src="./public/singlemovie.png">
+	<br>
+</h1>
