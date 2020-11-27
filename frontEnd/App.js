@@ -32,7 +32,7 @@ const App = () => {
     </Paper>
     <Grid container className={classes.root} spacing={2} alignContent="space-around" >
       {Object.values(movies).map((movie, i) => (
-        <Grid item xs={6} sm={3}  justify="center" key={i}>
+        <Grid item xs={6} sm={3} key={i}>
           <Movies
           movie={movie}
           className={classes.movie}

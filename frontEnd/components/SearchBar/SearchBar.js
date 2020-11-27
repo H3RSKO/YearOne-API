@@ -33,7 +33,6 @@ const SearchBar = (props) => {
         id="outlined-helperText"
         label="Search Movies"
         variant="outlined"
-        color="green"
         autoFocus={true}
         InputProps={{
           startAdornment: (searchIcon),

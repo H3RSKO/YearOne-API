@@ -6,7 +6,6 @@ const moviesStyles = {
 
   },
   mediaContainer: {
-    // paddingTop: '56.25%', // 16:9
     margin:"1em"
 
   },
@@ -14,10 +13,9 @@ const moviesStyles = {
     // height: '20%',
     marginLeft: '1em',
     marginRight: '1em',
-    paddingTop: '100%', // 16:9
+    paddingTop: '100%',
   },
   content: {
-    // height: "12em",
   }
 };
 

@@ -28,7 +28,7 @@ const Movies = (props) => {
   return (
     <Card className={classes.root} >
     <div onClick={() => setAsSelected(true)} >
-      <Box className={classes.mediaContainer} xs>
+      <Box className={classes.mediaContainer} xs={6}>
       <CardMedia
         image={movie.poster}
         title={movie.title}
@@ -40,7 +40,6 @@ const Movies = (props) => {
           {movie.title}
         </Typography>
         <Box m={0}>
-          <Typography variant="h6">Director: {movie.director}</Typography>
         </Box>
         <Box m={0} fontSize={19}>
           Released: {movie.year}

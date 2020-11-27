@@ -47,10 +47,10 @@ const Movie = (props) => {
       {movie ? (
         <Card className={classes.root}>
           <Grid container direction="row" spacing={0}>
-            <Grid item xs >
+            <Grid item xs={6}>
               <img className={classes.media} alt="image" src={movie.poster} />
             </Grid>
-            <Grid item xs>
+            <Grid item xs={6}>
               <DialogTitle id="customized-dialog-title" onClose={popUpHandler}>
                 {movie.title}
               </DialogTitle>
@@ -69,8 +69,11 @@ const Movie = (props) => {
                 </Box>
               </DialogContent>
               <DialogActions>
-                {/* <Box padding={2} margin={2}></Box> */}
-                <ThumbRating movie={movie} block={true} color={{red: "#bf2b2b", green: "#45ad48"}} />
+                <ThumbRating
+                  movie={movie}
+                  block={true}
+                  color={{ red: "#bf2b2b", green: "#45ad48" }}
+                />
               </DialogActions>
             </Grid>
           </Grid>

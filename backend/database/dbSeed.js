@@ -43,8 +43,23 @@ const movieData = [
     poster: "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
     thumbsUp: 5,
     thumbsDown: 2
+  },
+  {
+    title: 'Captain America: Civil War',
+    year: '2016',
+    poster: "https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_SX300.jpg",
+    thumbsUp: 6,
+    thumbsDown: 3
+  },
+  {
+    title: 'Captain Marvel',
+    year: '2019',
+    poster: "https://m.media-amazon.com/images/M/MV5BMTE0YWFmOTMtYTU2ZS00ZTIxLWE3OTEtYTNiYzBkZjViZThiXkEyXkFqcGdeQXVyODMzMzQ4OTI@._V1_SX300.jpg",
+    thumbsUp: 3,
+    thumbsDown: 5
   }
 ]
+
 
 const seedDB = async () => {
   try {
