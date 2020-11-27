@@ -16,13 +16,23 @@ const App = () => {
   }, [])
 
   return (
-  <Box>
-    <Paper elevation={3}>
-    <h1>Movies</h1>
-    <SearchBar setMovies={setMovies}/>
+    <Grid
+    container
+    spacing={0}
+    direction="column"
+    alignItems="center"
+    justify="center"
+    style={{ minHeight: '100vh' }}
+  >
+    <Paper elevation={3} className={classes.app}>
+      <Box className={classes.searchContainer}>
+        <h1>Movie Search</h1>
+        <SearchBar setMovies={setMovies}/>
+      </Box>
+    </Paper>
     <Grid container className={classes.root} spacing={2} alignContent="space-around" >
       {Object.values(movies).map((movie, i) => (
-        <Grid item xs={6} sm={3} justify="center" key={i}>
+        <Grid item xs={6} sm={3}  justify="center" key={i}>
           <Movies
           movie={movie}
           className={classes.movie}
@@ -30,8 +40,7 @@ const App = () => {
         </Grid>
       ))}
     </Grid>
-    </Paper>
-  </Box>)
+</Grid>)
 }
 
 export default withStyles(appStyles)(App)
