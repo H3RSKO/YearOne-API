@@ -9,14 +9,8 @@ const Movie = db.define('movie', {
   poster: {
     type: Sequelize.TEXT
   },
-  director: {
-    type: Sequelize.STRING,
-  },
   year: {
     type: Sequelize.INTEGER,
-  },
-  description: {
-    type: Sequelize.TEXT,
   },
   thumbsUp: {
     type: Sequelize.INTEGER,
