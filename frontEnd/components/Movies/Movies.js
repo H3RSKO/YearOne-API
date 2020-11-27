@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   CardMedia,
@@ -12,26 +12,29 @@ import {
 import { withStyles } from "@material-ui/core/styles";
 import Movie from "../Movie/Movie";
 import ThumbRating from '../ThumbRating/ThumbRating'
+import Axios from "axios";
 import moviesStyles from "./moviesStyle";
 
 const Movies = (props) => {
-  const { classes, movie } = props;
+  const { classes, movie, setMovies } = props;
   const [selected, setAsSelected] = useState(false);
+  const [currentMovie, setCurrentMovie] = useState(movie)
 
-  const popUpHandler = () => {
+  const popUpHandler = async () => {
     let status = selected ? setAsSelected(false) : setAsSelected(true);
   };
 
-  console.log(movie);
   return (
     <Card className={classes.root} >
-    <div onClick={() => setAsSelected(true)}>
+    <div onClick={() => setAsSelected(true)} >
+      <Box className={classes.mediaContainer} xs>
       <CardMedia
         image={movie.poster}
         title={movie.title}
         className={classes.media}
         // height="65%"
       />
+      </Box>
       <CardContent className={classes.content}>
         <Typography gutterBottom variant="h4" component="h1" m={0}>
           {movie.title}
@@ -42,20 +45,17 @@ const Movies = (props) => {
         <Box m={0} fontSize={19}>
           Released: {movie.year}
         </Box>
-        {/* <Box overflow="hidden" m={0.5} mt={2}>
-         {movie.description}
-        </Box> */}
       </CardContent>
 
 
       {selected ? (
-        <Movie title={movie.title} popUpHandler={popUpHandler} />
+        <Movie title={movie.title} rating={{thumbsUp: movie.thumbsUp, thumbsDown: movie.thumbsDown}} popUpHandler={popUpHandler} />
       ) : (
         <></>
       )}
     </div>
     <CardActions disableSpacing>
-        <ThumbRating movie={movie}/>
+        <ThumbRating movie={currentMovie} setCurrentMovie={setCurrentMovie} color={{red: "red", green: "green"}}/>
       </CardActions>
     </Card>
   );

@@ -11,19 +11,23 @@ router.get('/', async (req, res, next) => {
   } catch(err) {next(err)}
 })
 
+
 router.post('/', async (req, res, next) => {
-  console.log('api req body>> ', req.body)
   try {
     let movie = await Movie.findOne({
       where: {
         title: req.body.title
       }
     })
-    console.log('made it to API movie ', movie)
     if (movie) {
-      // fix this: req.body works
-      movie.thumbsUp = req.body.thumbsUp
-      movie.thumbsDown = req.body.thumbsDown
+      movie = Movie.update({
+        thumbsDown: req.body.thumbsDown,
+        thumbsUp: req.body.thumbsUp
+      },
+        {where: {
+          title: req.body.title
+        }
+      })
     } else {
       movie = Movie.create(req.body)
       res.json(movie)

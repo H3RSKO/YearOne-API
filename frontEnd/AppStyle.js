@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const appStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
+    marginTop: '5vh',
     flexGrow: 1,
     backgroundColor: '#a9bcd0'
   },

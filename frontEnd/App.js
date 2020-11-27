@@ -20,7 +20,7 @@ const App = () => {
     <Paper elevation={3}>
     <h1>Movies</h1>
     <SearchBar setMovies={setMovies}/>
-    <Grid container className={classes.root} spacing={2} alignContent="space-between">
+    <Grid container className={classes.root} spacing={2} alignContent="space-around" >
       {Object.values(movies).map((movie, i) => (
         <Grid item xs={6} sm={3} justify="center" key={i}>
           <Movies

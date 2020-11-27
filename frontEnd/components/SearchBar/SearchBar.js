@@ -12,17 +12,17 @@ const SearchBar = (props) => {
   const {setMovies} = props
   const [searchText, setSearchText] = useState('')
 
-  console.log('set movies? ', props)
+
   const search = async (event) => {
     try {
       event.preventDefault();
      const {data} = await Axios.get(`http://www.omdbapi.com/?s=${searchText}&type=movie&apikey=a175f862`)
-     console.log('search data >> ', data.Search)
+
      let newMovies = Object.values(data.Search)
      newMovies = newMovies.map(movie => ({
        title: movie.Title, poster: movie.Poster, year: movie.Year, thumbsUp: 0, thumbsDown: 0
      }))
-     console.log('updated data >> ', newMovies)
+
      setMovies(newMovies)
     } catch(err) {console.log(err)}
   }
