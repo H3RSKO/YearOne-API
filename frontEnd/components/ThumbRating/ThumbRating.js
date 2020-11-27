@@ -11,7 +11,11 @@ const ThumbRating = (props) => {
     setThumbRating(movie)
   }, [voteHandler])
 
+  // if(movie.title != thumbRating.title) setThumbRating(movie)
   if (movie.thumbsDown != thumbRating.thumbsDown || movie.thumbsUp != thumbRating.thumbsUp) setThumbRating(movie)
+  console.log('hello? .>>> ', movie.thumbsDown)
+  console.log('thumbrating >>> ', thumbRating)
+  console.log('movie>>> ', movie)
 
   const voteHandler = async (thumb) => {
     if (block) {
@@ -27,7 +31,7 @@ const ThumbRating = (props) => {
       setThumbRating(produce(updatedM => {
         updatedM.thumbsDown += 1
       }))}
-
+    console.log('>>>>> ', thumbRating)
     const {data} = await Axios.post('/api', thumbRating)}
   }
 

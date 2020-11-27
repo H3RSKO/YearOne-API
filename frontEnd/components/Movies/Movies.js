@@ -4,15 +4,12 @@ import {
   CardMedia,
   CardContent,
   CardActions,
-  IconButton,
-  SvgIcon,
   Typography,
   Box,
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import Movie from "../Movie/Movie";
 import ThumbRating from '../ThumbRating/ThumbRating'
-import Axios from "axios";
 import moviesStyles from "./moviesStyle";
 
 const Movies = (props) => {
@@ -24,6 +21,10 @@ const Movies = (props) => {
     let status = selected ? setAsSelected(false) : setAsSelected(true);
   };
 
+  useEffect(() => {
+    setCurrentMovie(movie)
+  }, [])
+
   return (
     <Card className={classes.root} >
     <div onClick={() => setAsSelected(true)} >
@@ -32,7 +33,6 @@ const Movies = (props) => {
         image={movie.poster}
         title={movie.title}
         className={classes.media}
-        // height="65%"
       />
       </Box>
       <CardContent className={classes.content}>
@@ -46,8 +46,6 @@ const Movies = (props) => {
           Released: {movie.year}
         </Box>
       </CardContent>
-
-
       {selected ? (
         <Movie title={movie.title} rating={{thumbsUp: movie.thumbsUp, thumbsDown: movie.thumbsDown}} popUpHandler={popUpHandler} />
       ) : (
@@ -55,7 +53,7 @@ const Movies = (props) => {
       )}
     </div>
     <CardActions disableSpacing>
-        <ThumbRating movie={currentMovie} setCurrentMovie={setCurrentMovie} color={{red: "red", green: "green"}}/>
+        <ThumbRating movie={movie} color={{red: "red", green: "green"}}/>
       </CardActions>
     </Card>
   );
